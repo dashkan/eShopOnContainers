@@ -16,7 +16,7 @@ variables:
   value: eshopcnb
   
 steps:
-- task: build
+- task: DockerCompose@0
   displayName: Build services
   inputs:
     action: Build services
