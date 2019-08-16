@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- dev
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -16,6 +16,18 @@ variables:
   value: eshopcnb
   
 steps:
+- task: build
+  displayName: Build services
+  inputs:
+    action: Build services
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerComposeFile: docker-compose.yml
+    projectName: eshop
+    qualifyImageNames: true
+    additionalImageTags: $(Build.BuildId)
+    includeLatestTag: true
+    
 - task: DockerCompose@0
   displayName: Push services
   inputs:
@@ -26,3 +38,4 @@ steps:
     projectName: eshop
     qualifyImageNames: true
     additionalImageTags: $(Build.BuildId)
+    includeLatestTag: true
