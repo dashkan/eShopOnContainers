@@ -6,9 +6,6 @@
 trigger:
 - dev
 
-pool:
-  vmImage: 'ubuntu-latest'
-
 variables:
 - name: azureSubscriptionEndpoint
   value: CNB
