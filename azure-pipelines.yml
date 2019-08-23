@@ -11,7 +11,7 @@ pool:
 
 variables:
 - name: azureSubscriptionEndpoint
-  value: CNB
+  value: Test
 - name: azureContainerRegistry
   value: eshopcnb
   
