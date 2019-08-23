@@ -11,12 +11,18 @@ pool:
 
 variables:
 - name: azureSubscriptionEndpoint
-  value: Test
+  value: CNB
 - name: azureContainerRegistry
   value: eshopcnb
   
 steps:
     
+- task: DockerCompose@0
+  displayName: Container registry login
+  inputs:
+    containerregistrytype: Container Registry
+    dockerRegistryEndpoint: Test
+
 - task: DockerCompose@0
   displayName: Build services
   inputs:
