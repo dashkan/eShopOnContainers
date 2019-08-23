@@ -13,7 +13,7 @@ variables:
 - name: azureSubscriptionEndpoint
   value: CNB
 - name: azureContainerRegistry
-  value: eshopcnb
+  value: eshopcnb.azurecr.io
   
 steps:
     
